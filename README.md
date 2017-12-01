@@ -1,4 +1,4 @@
-# Quasar App
+# Estilo Propio - Carta
 
 > A Quasar project
 
@@ -17,4 +17,3 @@ $ quasar build
 # lint code
 $ quasar lint
 ```
-# estilo-carta
