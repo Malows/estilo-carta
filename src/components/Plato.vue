@@ -4,7 +4,7 @@
     )
     .crop
       img.img-responsive(:src="plato.foto"  v-show="displayPicture")
-      .texto(v-show="!displayPicture" :style="{'height': ancho+'px'}")
+      .texto(v-show="!displayPicture")
         p
           strong {{ plato.nombre }}
         p ${{ plato.precio }}
@@ -16,8 +16,8 @@ export default {
   props: ['plato'],
   data () {
     return {
-      displayPicture: true,
-      ancho: 0
+      displayPicture: true
+      // ancho: 0
     }
   },
   methods: {
@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted () {
-    this.ancho = this.$refs.contenedor.offsetWidth
+    // this.ancho = this.$refs.contenedor.offsetWidth
     window.EventBus.$on('toggleVisibility', id => {
       if (this.plato.id === id) this.displayPicture = false
       else this.displayPicture = true
@@ -60,6 +60,7 @@ export default {
   left: -100%;
 }
 .texto {
+
   padding: 0;
   margin: 0 auto;
 }

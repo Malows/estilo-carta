@@ -1,6 +1,6 @@
 <template lang="pug">
   .has-text-centered
-    h3(v-show="categoria.platos.length") {{ categoria.nombre.toUpperCase() }}
+    h3(v-show="categoria.platos.length") {{ categoria.nombre }}
     .columns.is-gapless.is-multiline.is-mobile
       plato.is-fullwidth(v-for="plato in categoria.platos" :plato="plato" :key="plato.id")
 </template>
@@ -23,5 +23,6 @@ export default {
 <style lang="css">
 h3 {
   font-size: 2.5rem;
+  text-transform: uppercase;
 }
 </style>

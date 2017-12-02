@@ -4,8 +4,6 @@ const simpleSetter = x => (state, input) => {
 
 export default {
   SET_CATEGORIAS: simpleSetter('categorias'),
-  SET_PLATOS: simpleSetter('platos'),
-  SET_SERVER: simpleSetter('server'),
 
   SET_ESTADOS_PLATOS (state, permutadores) {
     const ids = permutadores.platos
