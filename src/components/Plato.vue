@@ -4,7 +4,7 @@
     )
     .crop
       img.img-responsive(:src="plato.foto"  v-show="displayPicture")
-      div.text-responsive(v-show="!displayPicture" :style="{'height': ancho+'px'}")
+      .texto(v-show="!displayPicture" :style="{'height': ancho+'px'}")
         p
           strong {{ plato.nombre }}
         p ${{ plato.precio }}
@@ -40,17 +40,13 @@ export default {
 .plato {
   padding: 0;
   display: flex;
-  height: 200px;
-  width: 200px;
+  height: 194px;
+  /* el width viene de bulma */
 }
 .crop {
   height: 100%;
   overflow: hidden;
   position: relative;
-}
-.texto {
-  padding: 0;
-  margin: 0 auto;
 }
 .img-responsive {
   display: block;
@@ -63,15 +59,8 @@ export default {
   bottom: -100%;
   left: -100%;
 }
-.text-responsive {
-  display: block;
-  min-width: 100%;
-  min-height: 100%;
-  margin: auto;
-  position: absolute;
-  top: -100%;
-  right: -100%;
-  bottom: -100%;
-  left: -100%;
+.texto {
+  padding: 0;
+  margin: 0 auto;
 }
 </style>
