@@ -2,8 +2,6 @@
   .layout-view
     .column.is-gapless.is-fullwidth.is-10-desktop.is-offset-1-desktop.is-8-widescreen.is-offset-2-widescreen
       menu-platos( v-for="categoria in categorias" :categoria='categoria' :key='categoria.id')
-    input.input(type="text" v-model="address")
-    button.button( @click="setDireccionDelServidor") Servidor
 </template>
 
 <script>
