@@ -2,6 +2,7 @@
 
 > A Quasar project
 
+Vista pública de un sistema de pedidos
 ## Build Setup
 
 ``` bash
