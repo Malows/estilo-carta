@@ -22,7 +22,7 @@ export default {
 
 <style lang="css">
 h3 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-transform: uppercase;
 }
 </style>

@@ -17,7 +17,6 @@ export default {
   data () {
     return {
       displayPicture: true
-      // ancho: 0
     }
   },
   methods: {
@@ -27,7 +26,6 @@ export default {
     }
   },
   mounted () {
-    // this.ancho = this.$refs.contenedor.offsetWidth
     window.EventBus.$on('toggleVisibility', id => {
       if (this.plato.id === id) this.displayPicture = false
       else this.displayPicture = true
@@ -41,7 +39,6 @@ export default {
   padding: 0;
   display: flex;
   height: 194px;
-  /* el width viene de bulma */
 }
 .crop {
   height: 100%;
@@ -60,7 +57,6 @@ export default {
   left: -100%;
 }
 .texto {
-
   padding: 0;
   margin: 0 auto;
 }
