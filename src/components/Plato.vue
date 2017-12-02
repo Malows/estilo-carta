@@ -1,20 +1,18 @@
-<template>
-  <div
-    v-on:click="toggleImageVisibility"
-    ref="contenedor"
-    class="column is-one-third-mobile is-one-quarter-tablet plato"
-    v-show="plato.habilitado">
-
-    <img :src="plato.foto"  v-show="displayPicture" :style="{'height': ancho+'px'}" >
-    <div v-show="!displayPicture" :style="{'height': ancho+'px'}">
-      <p><strong>{{plato.nombre}}</strong></p>
-      <p>${{plato.precio}}</p>
-    </div>
-  </div>
+<template lang="pug">
+  .column.is-one-third-mobile.is-one-quarter-tablet.plato(
+    @click="toggleImageVisibility" ref="contenedor" v-show="plato.habilitado"
+    )
+    .crop
+      img.img-responsive(:src="plato.foto"  v-show="displayPicture")
+      div.text-responsive(v-show="!displayPicture" :style="{'height': ancho+'px'}")
+        p
+          strong {{ plato.nombre }}
+        p ${{ plato.precio }}
 </template>
 
 <script>
 export default {
+  name: 'plato',
   props: ['plato'],
   data () {
     return {
@@ -24,22 +22,15 @@ export default {
   },
   methods: {
     toggleImageVisibility () {
-      if (this.displayPicture) {
-        window.EventBus.$emit('toggleVisibility', this.plato.id)
-      } else {
-        this.displayPicture = true
-      }
+      if (this.displayPicture) window.EventBus.$emit('toggleVisibility', this.plato.id)
+      else this.displayPicture = true
     }
   },
   mounted () {
     this.ancho = this.$refs.contenedor.offsetWidth
-
-    window.EventBus.$on('toggleVisibility', (id) => {
-      if (this.plato.id === id) {
-        this.displayPicture = false
-      } else {
-        this.displayPicture = true
-      }
+    window.EventBus.$on('toggleVisibility', id => {
+      if (this.plato.id === id) this.displayPicture = false
+      else this.displayPicture = true
     })
   }
 }
@@ -49,14 +40,38 @@ export default {
 .plato {
   padding: 0;
   display: flex;
-  /*align-content: stretch;*/
+  height: 200px;
+  width: 200px;
+}
+.crop {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 .texto {
   padding: 0;
   margin: 0 auto;
 }
 .img-responsive {
-  width: 100%;
-  height: 100%;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  position: absolute;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
+}
+.text-responsive {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  position: absolute;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
 }
 </style>

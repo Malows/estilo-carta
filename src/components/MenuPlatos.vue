@@ -1,23 +1,22 @@
-<template lang="html">
-  <div class="has-text-centered">
-    <h3 v-show="platos.length">{{this.categoria.nombre.toUpperCase()}}</h3>
-    <div class="columns is-gapless is-multiline is-mobile">
-      <plato v-for="plato in platos" :plato="plato" :key="plato.id" class="is-fullwidth"/>
-    </div>
-  </div>
+<template lang="pug">
+  .has-text-centered
+    h3(v-show="categoria.platos.length") {{ categoria.nombre.toUpperCase() }}
+    .columns.is-gapless.is-multiline.is-mobile
+      plato.is-fullwidth(v-for="plato in categoria.platos" :plato="plato" :key="plato.id")
 </template>
 
 <script>
+import Plato from './Plato'
+
 export default {
+  name: 'menu-platos',
   components: {
-    'plato': () => System.import('./Plato.vue')
+    Plato
   },
-  props: ['categoria'],
-  computed: {
-    platos () {
-      return this.categoria.platos.filter(plato => plato.habilitado)
-    }
-  }
+  props: ['categoria']
+  // computed: {
+  //   platos: () => this.categoria.platos.filter(x => x.habilitado)
+  // }
 }
 </script>
 

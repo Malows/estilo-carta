@@ -8,7 +8,7 @@ require(`quasar/dist/quasar.${__THEME}.css`)
 
 import Vue from 'vue'
 import Quasar from 'quasar'
-import store from './store.js'
+import store from './store'
 
 import { DOMAIN_NO_PORT } from './api'
 
@@ -72,12 +72,12 @@ window.Echo = new Echo({
 
 window.Echo = new Echo({
   broadcaster: 'socket.io',
-  host: `${DOMAIN_NO_PORT}:6001`, // .replace(/^(http)+(s?)+:(\/\/)/,'')
+  host: `${DOMAIN_NO_PORT}:6001`,
   namespace: ''
 })
 
 window.Echo.channel('platos')
-.listen('deshabilitarPlatos', e => {delete e.socket; store.dispatch('DESHABILTAR_PLATOS', Object.values(e)) })
-.listen('habilitarPlatos', e => {delete e.socket; store.dispatch('HABILTAR_PLATOS', Object.values(e)) })
+.listen('deshabilitarPlatos', e => {delete e.socket; store.dispatch('deshabilitarPlatos', Object.values(e)) })
+.listen('habilitarPlatos', e => {delete e.socket; store.dispatch('habilitarPlatos', Object.values(e)) })
 
 window.setTimeout(() => { alert( 'tu socket es '+ window.Echo.socketId()) }, 5000)
