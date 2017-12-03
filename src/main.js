@@ -80,4 +80,4 @@ window.Echo.channel('platos')
 .listen('deshabilitarPlatos', e => {delete e.socket; store.dispatch('deshabilitarPlatos', Object.values(e)) })
 .listen('habilitarPlatos', e => {delete e.socket; store.dispatch('habilitarPlatos', Object.values(e)) })
 
-window.setTimeout(() => { alert( 'tu socket es '+ window.Echo.socketId()) }, 5000)
+// window.setTimeout(() => { alert( 'tu socket es '+ window.Echo.socketId()) }, 5000)

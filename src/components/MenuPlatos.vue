@@ -1,6 +1,6 @@
 <template lang="pug">
   .has-text-centered
-    h3(v-show="categoria.platos.length") {{ categoria.nombre }}
+    h3 {{ categoria.nombre }}
     .columns.is-gapless.is-multiline.is-mobile
       plato.is-fullwidth(v-for="plato in categoria.platos" :plato="plato" :key="plato.id")
 </template>
