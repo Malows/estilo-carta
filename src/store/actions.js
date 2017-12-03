@@ -17,5 +17,5 @@ const refresher = (url, commiter) => ({ commit }) => {
 export default {
   refreshCategorias: refresher(CATEGORIAS_URL, 'SET_CATEGORIAS'),
   deshabilitarPlatos: permuter(false),
-  habilitarPlato: permuter(true)
+  habilitarPlatos: permuter(true)
 }
